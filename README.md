@@ -25,5 +25,22 @@ This is the project presentation Crit 2 and I present my plant monitor design an
 ***
 ### Process
 #### Step1 Connecting to Wifi
+This step makes the Ardurio board have wifi. Copy the code (wifi.ino) in to a new Arduino sketch.
+
 The ssid and password need to be modified to the lab wifi network and password.
-> 
+```
+const char* ssid     = "SSID here";
+const char* password = "password here";
+const char* host = "iot.io";
+```
+#### Step2 Getting the Time
+This step use [ezTime library](https://github.com/ropg/ezTime) to make the Arduino know when it is. Copy the code (Getting the time.ino) into a new Arduino sketch.
+
+The ssid and password need to be modified to the lab wifi network and password. And the Timezone is GB since we are in London. If you are in other timezone, please check the [tz database list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
+```
+const char* ssid     = "ssid here";
+const char* password = "your password here";
+Timezone GB;
+```
+#### Publish Data to an MQTT Sever
+
