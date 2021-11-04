@@ -1,6 +1,12 @@
 # CASA0014-CE Plant Monitor
 ## Brief
-This is the project presentation Crit 2 and I present my plant monitor design and how it works. This is a based on Arduiro and Rpi to get soil data and visualisation data.
+This is the project presentation Crit 2 and I present my plant monitor design and how it works. This is a based on Arduiro and Rpi to get soil data and visualisation data. This is my plant, Eve. Eve is a peace lily, and I need to water it when the top inch soil feels dry. As it said in *Little Prince* 
+> You become responsible, forever, for what you have tamed.
+Eve is my flower, and I want to know more about her and take care. Especially, water, what Eve need most.
+
+![121636029333_ pic ](https://user-images.githubusercontent.com/67747655/140314441-6c35af7e-b3f0-427e-a944-171cab27b181.jpg)
+
+
 
 ### Goals
 - Monitor the plant data(temperature, humidity, and soil moisture levels)
