@@ -4,7 +4,7 @@ This is the project presentation Crit 2 and I present my plant monitor design an
 > You become responsible, forever, for what you have tamed.
 Eve is my flower, and I want to know more about her and take care. Especially, water, what Eve need most.
 
-<img width="772" alt="Screenshot 2021-11-04 at 18 01 03" src="https://user-images.githubusercontent.com/67747655/140394420-84bf050e-7e8e-499d-99b8-a284f75d3cf2.png">
+<img width="800" alt="Screenshot 2021-11-04 at 18 01 03" src="https://user-images.githubusercontent.com/67747655/140394420-84bf050e-7e8e-499d-99b8-a284f75d3cf2.png">
 
 
 ### Goals
@@ -34,7 +34,7 @@ Eve is my flower, and I want to know more about her and take care. Especially, w
 
 ### MQTT Library Needed
 
-<img width="560" alt="Screenshot 2021-11-04 at 18 00 00" src="https://user-images.githubusercontent.com/67747655/140394242-59168f3e-e4f3-46c6-819e-d7940265a36d.png">
+<img width="800" alt="Screenshot 2021-11-04 at 18 00 00" src="https://user-images.githubusercontent.com/67747655/140394242-59168f3e-e4f3-46c6-819e-d7940265a36d.png">
 
 
 ***
@@ -63,7 +63,7 @@ Timezone GB;
 ```
 Then upload the code to the board. The board could get the London time.
 
-<img width="843" alt="Screenshot 2021-11-04 at 17 14 39" src="https://user-images.githubusercontent.com/67747655/140387259-2fde647c-67b7-4e7b-879f-6a7ba1afdb87.png">
+<img width="800" alt="Screenshot 2021-11-04 at 17 14 39" src="https://user-images.githubusercontent.com/67747655/140387259-2fde647c-67b7-4e7b-879f-6a7ba1afdb87.png">
 
 ***
 
@@ -85,7 +85,56 @@ Then upload the code to the board. The board could get the London time.
 
 #### Step4 Monitor soil and Environment
 
+<img width="800" alt="7FFB9554-1675-45F7-B587-B5180DE76F8A" src="https://user-images.githubusercontent.com/67747655/140656272-8074928f-f19c-4804-80ff-cda9e8920c45.png">
+
+Following the fritzing diagram, I connected the DHT22 sensor(temperature / humidity sensor) and two nails(test the soil moisture).
+
+Then I upload and run the testMoisture script(provided by Duncan) and DHT(Arduino>Files>Examples) to test sensors.
+
+Finally, we used a CASA Plant Monitor shield to make the packaging a little tidier.
+
+
+![Uploading 3.png…]()
 
 
 
 
+#### Step5 Publish data to MQTT
+
+Publish the sensor data to my topic name–– "ucfnqji" and get the temperature, humidity and soil moisture information.
+
+In this step, I used the sendMQTT fuction(like step3), and reconnect fuction to get the data.
+
+```
+void reconnect() {
+  // Loop until we're reconnected
+  while (!client.connected()) {
+    Serial.print("Attempting MQTT connection...");
+    // Create a random client ID
+    String clientId = "ESP8266Client-";
+    clientId += String(random(0xffff), HEX);
+    
+    // Attempt to connect with clientID, username and password
+    if (client.connect(clientId.c_str(), mqttuser, mqttpass)) {
+      Serial.println("connected");
+      // ... and resubscribe
+      client.subscribe("student/CASA0014/plant/ucxxxxx/inTopic");
+    } else {
+      Serial.print("failed, rc=");
+      Serial.print(client.state());
+      Serial.println(" try again in 5 seconds");
+      // Wait 5 seconds before retrying
+      delay(5000);
+    }
+  }
+}
+```
+#### Store data by Raspberry Pi
+
+
+
+
+
+
+
+                                                    
