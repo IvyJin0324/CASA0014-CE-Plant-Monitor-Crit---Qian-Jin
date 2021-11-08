@@ -30,13 +30,19 @@ Eve is my flower, so I want to know more about her and take care. Especially, wa
 - Visualise collected data
 
 ### Hardware Needed
-- Arduino Board
-- Huzzah Board
+- Arduino UNO
+![Image 08-11-2021 at 03 36](https://user-images.githubusercontent.com/67747655/140680486-a3d5b8e1-e66c-4fae-aa9e-eebded5c4da6.jpg)
+(Source:https://www.amazon.co.uk/Arduino-A000066-ARDUINO-UNO-REV3/dp/B008GRTSV6/ref=sr_1_3?crid=3TMXS6NQ4IPZ0&keywords=Arduino%2Buno&qid=1636342528&sprefix=arduino%2Buno%2Caps%2C75&sr=8-3&th=1)
+- Huzzah Board with ESP8266 Wifi
+![image](https://user-images.githubusercontent.com/67747655/140680344-2e1e95d5-907a-4b47-b65c-aafa8d24c26d.png)
+![Image 08-11-2021 at 03 29](https://user-images.githubusercontent.com/67747655/140679992-59962a5e-21b8-47d1-b527-2c47eb4a30a5.jpg)
+(Source: https://www.amazon.co.uk/Adafruit-HUZZAH32-ESP32-Feather-Board/dp/B0743FNXK5/ref=pd_sbs_1/259-8957207-7995649?pd_rd_w=5IyS0&pf_rd_p=b3232d54-1e37-435b-b370-81046eef630a&pf_rd_r=6RHGYX6QD9NY1YMX42FP&pd_rd_r=c959d6aa-70ab-4913-802f-4771438597ec&pd_rd_wg=YPLxE&pd_rd_i=B0743FNXK5&psc=1)
 - DHT22 sensor
+![image](https://user-images.githubusercontent.com/67747655/140680253-fb47f2da-05f2-4ffc-96f6-e86e401a6ebf.png)
+![Image 08-11-2021 at 03 14](https://user-images.githubusercontent.com/67747655/140678836-b6d5cf4f-595d-4ac2-bd19-d9a2bda0480f.jpg)
+(Source:https://www.amazon.co.uk/Wishiot-Temperature-Humidity-Raspberry-Project%EF%BC%88Pack/dp/B08V8SYV66/ref=sr_1_1_sspa?crid=1HCYT6I9FK8WW&keywords=DHT22&qid=1636342390&s=computers&sprefix=dht22%2Ccomputers%2C91&sr=1-1-spons&psc=1&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUExUzBPTTg3SDRWQlBRJmVuY3J5cHRlZElkPUEwNzg0NDc1M0xOQUcxMkE2OFJUViZlbmNyeXB0ZWRBZElkPUEwMjQ2MTI1WVkwMjJXTDNJWFdaJndpZGdldE5hbWU9c3BfYXRmJmFjdGlvbj1jbGlja1JlZGlyZWN0JmRvTm90TG9nQ2xpY2s9dHJ1ZQ==)
 - 2 nails
 - Raspberry Pi
-
-![141636030760_ pic](https://user-images.githubusercontent.com/67747655/140321345-109f7500-7ad2-4b1a-a84d-e9365d33f8d3.jpg)
 
 
 ### Software Needed
@@ -261,7 +267,9 @@ Now, I can know whether Eve is healthy and take care her better.
 #### Shortage
 1. In this process, I can not understand the function and principle of some coding, and just copy the tutor's script. Even stand on the shoulder of giants, I still should get understanding to use it better.
 
-2. The final result is showed on the website. But I want to know Eve's condition whenever and wherever, so a mobile phone page is more useful because I use my phone all the day.
+2. The final result is showed on the website. But I want to know Eve's condition whenever and wherever, so a mobile phone page is more useful because I use my phone all the day. 
+
+3. We use two nails to minitor the soil moisture. But it is not accurate and reliable. 
 
 #### Improvement
 
@@ -269,9 +277,13 @@ Now, I can know whether Eve is healthy and take care her better.
 
 2. Develop an app to show Eve's environmental information.
 
-3. Design a beautiful house for Eve and her friends.(Use 3dmax to build the model and 3D print technology to make it).
+3. Use the specific sensor to detect the soil moisture. Just like this:
+![image](https://user-images.githubusercontent.com/67747655/140677633-29e53975-d32a-4d91-bd73-74c11da67a6a.png)
+(Soursed by Amazon)
 
-4. Achieve the watering automactically.
+4. Design a beautiful house for Eve and her friends.(Use 3dmax to build the model and 3D print technology to make it).
+
+5. Achieve the watering automactically.
 
 ***
 ## Reference
@@ -279,3 +291,7 @@ Now, I can know whether Eve is healthy and take care her better.
 2. https://github.com/ucl-casa-ce/casa0014
 3. https://github.com/balenalabs-incubator/balena-plant-saver
 4. https://www.influxdata.com/
+5. https://www.amazon.co.uk/Aideepen-Hygrometer-capacitive-Capacitive-Corrosion/dp/B08GCRZVSR/ref=sr_1_3_sspa?crid=14564YCQWSYYP&keywords=soil+moisture+sensor&qid=1636340476&sprefix=soil+moisture+sensor%2Caps%2C70&sr=8-3-spons&psc=1&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUFDUTdPQ0ZaM0tHNkUmZW5jcnlwdGVkSWQ9QTAzNjEyMTcyTzIzQzIyRFQwRElaJmVuY3J5cHRlZEFkSWQ9QTA1MDgzNjAyWVNPV0lWNE5CV0daJndpZGdldE5hbWU9c3BfYXRmJmFjdGlvbj1jbGlja1JlZGlyZWN0JmRvTm90TG9nQ2xpY2s9dHJ1ZQ==
+6. https://www.amazon.co.uk/Arduino-A000066-ARDUINO-UNO-REV3/dp/B008GRTSV6/ref=sr_1_3?crid=3TMXS6NQ4IPZ0&keywords=Arduino%2Buno&qid=1636342528&sprefix=arduino%2Buno%2Caps%2C75&sr=8-3&th=1
+7. https://www.amazon.co.uk/Adafruit-HUZZAH32-ESP32-Feather-Board/dp/B0743FNXK5/ref=pd_sbs_1/259-8957207-7995649?pd_rd_w=5IyS0&pf_rd_p=b3232d54-1e37-435b-b370-81046eef630a&pf_rd_r=6RHGYX6QD9NY1YMX42FP&pd_rd_r=c959d6aa-70ab-4913-802f-4771438597ec&pd_rd_wg=YPLxE&pd_rd_i=B0743FNXK5&psc=1
+8. https://www.amazon.co.uk/Wishiot-Temperature-Humidity-Raspberry-Project%EF%BC%88Pack/dp/B08V8SYV66/ref=sr_1_1_sspa?crid=1HCYT6I9FK8WW&keywords=DHT22&qid=1636342390&s=computers&sprefix=dht22%2Ccomputers%2C91&sr=1-1-spons&psc=1&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUExUzBPTTg3SDRWQlBRJmVuY3J5cHRlZElkPUEwNzg0NDc1M0xOQUcxMkE2OFJUViZlbmNyeXB0ZWRBZElkPUEwMjQ2MTI1WVkwMjJXTDNJWFdaJndpZGdldE5hbWU9c3BfYXRmJmFjdGlvbj1jbGlja1JlZGlyZWN0JmRvTm90TG9nQ2xpY2s9dHJ1ZQ==
