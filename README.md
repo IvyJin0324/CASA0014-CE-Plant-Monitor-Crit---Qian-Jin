@@ -1,28 +1,36 @@
 # CASA0014-CE Plant Monitor
+
+- Name: Qian Jin(Ashley)
+- Student ID: uncfqji
+- Email: unfnqji@ucl.ac.uk
+- Date: 8,Nov,2021
+- Professor: Duncan Wilson
+
 ## Brief
-This is the project presentation Crit 2 and I present my plant monitor design and how it works. This is a based on Arduiro and Rpi to get soil data and visualisation data. This is my plant, Eve. Eve is a peace lily, and I need to water it when the top inch soil feels dry. As it said in *Little Prince* 
+
+This is the project presentation Crit 2 and I will present my plant monitor design and how it works. This is a based on Arduino and Rpi to get soil data and visualise data. This is my plant, Eve. Eve is a peace lily, and I need to water it when the top inch soil feels dry. As it said in *Little Prince* 
 > You become responsible, forever, for what you have tamed.
-Eve is my flower, and I want to know more about her and take care. Especially, water, what Eve need most.
+Eve is my flower, so I want to know more about her and take care. Especially, water, what Eve need most.
 
 <img width="800" alt="Screenshot 2021-11-04 at 18 01 03" src="https://user-images.githubusercontent.com/67747655/140394420-84bf050e-7e8e-499d-99b8-a284f75d3cf2.png">
 
 ***
-## Content
-- Part1:Goals
-- Part2:Hardware Needed
-- Part3:Software Needed
-- Part4:MQTT Library Needed
-- Part5:Process
-- Part6:In the Future
+## Content List
+- Goals
+- Hardware Needed
+- Software Needed
+- MQTT Library Needed
+- Process
+- In the Future
 - Reference
 ***
 ### Goals
 - Monitor the plant data(temperature, humidity, and soil moisture levels)
 - Store data on a Rpi gateway
-- Visualise time series data
+- Visualise these data
 
 ### Hardware Needed
-- Ardurio Board
+- Arduino Board
 - Huzzah Board
 - DHT22sensor
 - 2 nails
@@ -44,7 +52,7 @@ Eve is my flower, and I want to know more about her and take care. Especially, w
 ***
 ### Process
 #### Step1 Connecting to Wifi
-This step makes the Ardurio board have wifi. Copy the code (wifi.ino) in to a new Arduino sketch.
+This step makes the Arduino board have wifi. Copy the code (wifi.ino) in to a new Arduino sketch.
 
 The ssid and password need to be modified to the lab wifi network and password.
 ```
@@ -106,7 +114,7 @@ void reconnect() {
     if (client.connect(clientId.c_str(), mqttuser, mqttpass)) {
       Serial.println("connected");
       // ... and subscribe to messages on broker
-      client.subscribe("student/CASA0014/plant/ucjtdjw/inTopic");
+      client.subscribe("student/CASA0014/plant/ucfnqji/inTopic");
     } else {
       Serial.print("failed, rc=");
       Serial.print(client.state());
@@ -253,7 +261,7 @@ Based on the grafana, I get the beautiful chart showed the Eve's environment inf
 Now, I can know whether Eve is healthy and take care her better.
 
 ***
-### In the Future
+## In the Future
 #### Shortage
 1. In this process, I can not understand the function and principle of some coding, and just copy the tutor's script. Even stand on the shoulder of giants, I still should understand to use it better.
 
@@ -268,3 +276,10 @@ Now, I can know whether Eve is healthy and take care her better.
 3. Design a beautiful house to Eve and her friends.(Use 3dmax to build the model and 3D print technology to make it).
 
 4. Achieve the watering automactically.
+
+***
+## Reference
+1. https://workshops.cetools.org/codelabs/CASA0014-2-Plant-Monitor/index.html?index=..%2F..casa0014#0
+2. https://github.com/ucl-casa-ce/casa0014
+3. https://github.com/balenalabs-incubator/balena-plant-saver
+4. https://www.influxdata.com/
