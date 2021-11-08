@@ -158,7 +158,7 @@ Following the fritzing diagram, I connected the DHT22 sensor(temperature / humid
 
 Then I upload and run the testMoisture script(provided by Duncan) and DHT(Arduino>Files>Examples) to test sensors.
 
-Finally, we used a CASA Plant Monitor shield to make the packaging a little tidier.
+Finally, we used a CASA Plant Monitor shield which makes the packaging a little tidier.
 
 
 ![141636030760_ pic](https://user-images.githubusercontent.com/67747655/140321345-109f7500-7ad2-4b1a-a84d-e9365d33f8d3.jpg)
@@ -169,7 +169,7 @@ Finally, we used a CASA Plant Monitor shield to make the packaging a little tidi
 
 Publish the sensor data to my topic name–– "ucfnqji" and get the temperature, humidity and soil moisture information.
 
-In this step, I used the sendMQTT fuction, and reconnect fuction to get the data(like step3).
+In this step, I used the 'sendMQTT' fuction, and 'reconnect' fuction to get the data(like step3).
 
 ```
 void sendMQTT() {
@@ -228,8 +228,6 @@ void reconnect() {
 
 1. Assemble Paspberry Pi box.
 
-![Uploading IMG_7387.JPG…]()
-
 2. Install Paspberry Pi software and login.
 
 `
@@ -244,9 +242,7 @@ device hostname
 sudo nano /etc/hosts
 `
 5. Quick update / upgrade
-```![181636331773_ pic](https://user-images.githubusercontent.com/67747655/140668322-1351a194-b0fc-4b8f-bdb8-1f7240032b19.jpg)
-![181636331773_ pic](https://user-images.githubusercontent.com/67747655/140668323-849f67d7-721c-4882-bb37-7e6a53eb1c61.jpg)
-
+```
 sudo apt update
 sudo apt upgrade -y
 reboot
@@ -256,24 +252,24 @@ reboot
 
 #### Step7 Visualise Data
 
-Based on the grafana, I get the beautiful chart showed the Eve's environment information.
+Based on the grafana, I got the beautiful chart shows the Eve's environmental information.
 
 Now, I can know whether Eve is healthy and take care her better.
 
 ***
 ## In the Future
 #### Shortage
-1. In this process, I can not understand the function and principle of some coding, and just copy the tutor's script. Even stand on the shoulder of giants, I still should understand to use it better.
+1. In this process, I can not understand the function and principle of some coding, and just copy the tutor's script. Even stand on the shoulder of giants, I still should get understanding to use it better.
 
-2. The final result is showed on the website. But I want to know Eve's condition whenever and wherever I am, so a mobile phone page is more useful because I use my phone all the day.
+2. The final result is showed on the website. But I want to know Eve's condition whenever and wherever, so a mobile phone page is more useful because I use my phone all the day.
 
 #### Improvement
 
 1. Read relevant books in the reading week.
 
-2. Develop a app to show Eve's environmeny information.
+2. Develop an app to show Eve's environmental information.
 
-3. Design a beautiful house to Eve and her friends.(Use 3dmax to build the model and 3D print technology to make it).
+3. Design a beautiful house for Eve and her friends.(Use 3dmax to build the model and 3D print technology to make it).
 
 4. Achieve the watering automactically.
 
