@@ -6,19 +6,27 @@ Eve is my flower, and I want to know more about her and take care. Especially, w
 
 <img width="800" alt="Screenshot 2021-11-04 at 18 01 03" src="https://user-images.githubusercontent.com/67747655/140394420-84bf050e-7e8e-499d-99b8-a284f75d3cf2.png">
 
-
+***
+## Content
+- Part1:Goals
+- Part2:Hardware Needed
+- Part3:Software Needed
+- Part4:MQTT Library Needed
+- Part5:Process
+- Part6:In the Future
+- Reference
+***
 ### Goals
 - Monitor the plant data(temperature, humidity, and soil moisture levels)
 - Store data on a Rpi gateway
 - Visualise time series data
-- Water the plant automately
 
 ### Hardware Needed
 - Ardurio Board
 - Huzzah Board
 - DHT22sensor
 - 2 nails
-- 
+- Raspberry Pi
 
 ![141636030760_ pic](https://user-images.githubusercontent.com/67747655/140321345-109f7500-7ad2-4b1a-a84d-e9365d33f8d3.jpg)
 
@@ -26,16 +34,12 @@ Eve is my flower, and I want to know more about her and take care. Especially, w
 ### Software Needed
 - [Arduino IDE](https://www.arduino.cc/en/software)
 - [MQTT Explorer](http://mqtt-explorer.com/)
-- 
-- 
-- d
-- d
--
+- [Raspberry Pi Imager](https://www.raspberrypi.com/software/)
+- [Grafana](https://grafana.com/)
 
 ### MQTT Library Needed
 
 <img width="800" alt="Screenshot 2021-11-04 at 18 00 00" src="https://user-images.githubusercontent.com/67747655/140394242-59168f3e-e4f3-46c6-819e-d7940265a36d.png">
-
 
 ***
 ### Process
@@ -73,13 +77,68 @@ Then upload the code to the board. The board could get the London time.
 
 2.Initialise the builtin LED, and MQTT can turn on and off the LED.
 
-3.Use function sendmqtt 
+3.Use function sendmqtt to view information in MQTT
+```
+void sendMQTT() {
 
+  if (!client.connected()) {
+    reconnect();
+  }
+  client.loop();
+  ++value;
+  snprintf (msg, 50, "hello world #%ld", value);
+  Serial.print("Publish message: ");
+  Serial.println(msg);
+  client.publish("student/CASA0014/plant/ucjnqji", msg);
+}
+```
 4.Use function reconnect to repeat the loop until the client is connected.
+```
+void reconnect() {
+  // Loop until we're reconnected
+  while (!client.connected()) {    // while not (!) connected....
+    Serial.print("Attempting MQTT connection...");
+    // Create a random client ID
+    String clientId = "ESP8266Client-";
+    clientId += String(random(0xffff), HEX);
+    
+    // Attempt to connect
+    if (client.connect(clientId.c_str(), mqttuser, mqttpass)) {
+      Serial.println("connected");
+      // ... and subscribe to messages on broker
+      client.subscribe("student/CASA0014/plant/ucjtdjw/inTopic");
+    } else {
+      Serial.print("failed, rc=");
+      Serial.print(client.state());
+      Serial.println(" try again in 5 seconds");
+      // Wait 5 seconds before retrying
+      delay(5000);
+    }
+  }
+}
+```
+5.Use callback function holds the code to process messages that have been subscribed to by the sketch.\
+```
+void callback(char* topic, byte* payload, unsigned int length) {
+  Serial.print("Message arrived [");
+  Serial.print(topic);
+  Serial.print("] ");
+  for (int i = 0; i < length; i++) {
+    Serial.print((char)payload[i]);
+  }
+  Serial.println();
 
-5.Use callback function holds the code to process messages that have been subscribed to by the sketch.
+  // Switch on the LED if an 1 was received as first character
+  if ((char)payload[0] == '1') {
+    digitalWrite(BUILTIN_LED, LOW);   // Turn the LED on (Note that LOW is the voltage level
+    // but actually the LED is on; this is because it is active low on the ESP-01)
+  } else {
+    digitalWrite(BUILTIN_LED, HIGH);  // Turn the LED off by making the voltage HIGH
+  }
 
-6.Use the MQTT to turn on or out LED.
+}
+```
+6.Use the MQTT to turn on or out LED. Publish "1" to student/CASA0014/plant/ucfnqji/inTopic
 
 ***
 
@@ -94,18 +153,44 @@ Then I upload and run the testMoisture script(provided by Duncan) and DHT(Arduin
 Finally, we used a CASA Plant Monitor shield to make the packaging a little tidier.
 
 
-![Uploading 3.png…]()
+![141636030760_ pic](https://user-images.githubusercontent.com/67747655/140321345-109f7500-7ad2-4b1a-a84d-e9365d33f8d3.jpg)
+<img width="600" alt="3" src="https://user-images.githubusercontent.com/67747655/140666472-93d6307a-c562-4a16-823c-f92bf982ddac.png">
 
-
-
-
+***
 #### Step5 Publish data to MQTT
 
 Publish the sensor data to my topic name–– "ucfnqji" and get the temperature, humidity and soil moisture information.
 
-In this step, I used the sendMQTT fuction(like step3), and reconnect fuction to get the data.
+In this step, I used the sendMQTT fuction, and reconnect fuction to get the data(like step3).
 
 ```
+void sendMQTT() {
+
+  if (!client.connected()) {
+    reconnect();
+  }
+  client.loop();
+
+  Temperature = dht.readTemperature(); // Gets the values of the temperature
+  snprintf (msg, 50, "%.1f", Temperature);
+  Serial.print("Publish message for t: ");
+  Serial.println(msg);
+  client.publish("student/CASA0014/plant/ucxxxxx/temperature", msg);
+
+  Humidity = dht.readHumidity(); // Gets the values of the humidity
+  snprintf (msg, 50, "%.0f", Humidity);
+  Serial.print("Publish message for h: ");
+  Serial.println(msg);
+  client.publish("student/CASA0014/plant/ucxxxxx/humidity", msg);
+
+  //Moisture = analogRead(soilPin);   // moisture read by readMoisture function
+  snprintf (msg, 50, "%.0i", Moisture);
+  Serial.print("Publish message for m: ");
+  Serial.println(msg);
+  client.publish("student/CASA0014/plant/ucxxxxx/moisture", msg);
+
+}
+
 void reconnect() {
   // Loop until we're reconnected
   while (!client.connected()) {
@@ -117,6 +202,7 @@ void reconnect() {
     // Attempt to connect with clientID, username and password
     if (client.connect(clientId.c_str(), mqttuser, mqttpass)) {
       Serial.println("connected");
+
       // ... and resubscribe
       client.subscribe("student/CASA0014/plant/ucxxxxx/inTopic");
     } else {
@@ -129,12 +215,56 @@ void reconnect() {
   }
 }
 ```
-#### Store data by Raspberry Pi
+***
+#### Step6: Store data by Raspberry Pi
+
+1. Assemble Paspberry Pi box.
+
+![Uploading IMG_7387.JPG…]()
+
+2. Install Paspberry Pi software and login.
+
+`
+ssh pi@celab-pi-casa0014.local
+`
+3.Change the device hostname.
+`
+device hostname
+`
+4. Repeat for hosts file.
+`
+sudo nano /etc/hosts
+`
+5. Quick update / upgrade
+```![181636331773_ pic](https://user-images.githubusercontent.com/67747655/140668322-1351a194-b0fc-4b8f-bdb8-1f7240032b19.jpg)
+![181636331773_ pic](https://user-images.githubusercontent.com/67747655/140668323-849f67d7-721c-4882-bb37-7e6a53eb1c61.jpg)
+
+sudo apt update
+sudo apt upgrade -y
+reboot
+```
+6. Installing [InfluxDB](https://portal.influxdata.com/downloads/#influxdb) on RPi
 
 
+#### Step7 Visualise Data
 
+Based on the grafana, I get the beautiful chart showed the Eve's environment information.
 
+Now, I can know whether Eve is healthy and take care her better.
 
+***
+### In the Future
+#### Shortage
+1. In this process, I can not understand the function and principle of some coding, and just copy the tutor's script. Even stand on the shoulder of giants, I still should understand to use it better.
 
+2. The final result is showed on the website. But I want to know Eve's condition whenever and wherever I am, so a mobile phone page is more useful because I use my phone all the day.
 
-                                                    
+#### Improvement
+
+1. Read relevant books in the reading week.
+
+2. Develop a app to show Eve's environmeny information.
+
+3. Design a beautiful house to Eve and her friends.(Use 3dmax to build the model and 3D print technology to make it).
+
+4. Achieve the watering automactically.
