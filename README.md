@@ -8,7 +8,7 @@
 
 ## Brief
 
-This is the project presentation Crit 2 and I will present my plant monitor design and how it works. This is a based on Arduino and Rpi to get soil data and visualise data. This is my plant, Eve. Eve is a peace lily, and I need to water it when the top inch soil feels dry. As it said in *Little Prince* 
+This is the project presentation Crit 2 and I will present my plant monitor design and how it works. This project is based on Arduino and Rpi to get soil data and visualise data. This is my plant, Eve. Eve is a peace lily, and I need to water it when the top inch soil feels dry. As it said in *Little Prince* 
 > You become responsible, forever, for what you have tamed.
 Eve is my flower, so I want to know more about her and take care. Especially, water, what Eve need most.
 
@@ -22,17 +22,17 @@ Eve is my flower, so I want to know more about her and take care. Especially, wa
 - MQTT Library Needed
 - Process
 - In the Future
-- Reference
+- References
 ***
 ### Goals
 - Monitor the plant data(temperature, humidity, and soil moisture levels)
 - Store data on a Rpi gateway
-- Visualise these data
+- Visualise collected data
 
 ### Hardware Needed
 - Arduino Board
 - Huzzah Board
-- DHT22sensor
+- DHT22 sensor
 - 2 nails
 - Raspberry Pi
 
@@ -51,29 +51,29 @@ Eve is my flower, so I want to know more about her and take care. Especially, wa
 
 ***
 ### Process
-#### Step1 Connecting to Wifi
-This step makes the Arduino board have wifi. Copy the code (wifi.ino) in to a new Arduino sketch.
+#### Step1 Connect to Wifi
+This step makes the Arduino board having wifi function. Copy the script (wifi.ino) as a new Arduino sketch.
 
-The ssid and password need to be modified to the lab wifi network and password.
+The SSID and password need to be modified for the network connection.
 ```
 const char* ssid     = "SSID here";
 const char* password = "password here";
 const char* host = "iot.io";
 ```
-Then upload this code to the board, and it get the wifi signal.
+Then upload this script to the board, and it get the wifi signal.
 
 ***
 
-#### Step2 Getting the Time
-This step use [ezTime library](https://github.com/ropg/ezTime) to make the Arduino know when it is. Copy the code (Getting the time.ino) into a new Arduino sketch.
+#### Step2 Get the Time
+This step uses [ezTime library](https://github.com/ropg/ezTime) to make the Arduino get to know the time. Copy the script (Getting the time.ino) into a new Arduino sketch.
 
-The ssid and password need to be modified to the lab wifi network and password. And the Timezone is GB since we are in London. If you are in other timezone, please check the [tz database list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
+The ssid and password need to be modified as step1. And the set Timezone to GB since we are in London. If you are in other timezone, please check the [tz database list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
 ```
 const char* ssid     = "ssid here";
 const char* password = "your password here";
 Timezone GB;
 ```
-Then upload the code to the board. The board could get the London time.
+Then upload the script to the board. The board could get the London time.
 
 <img width="800" alt="Screenshot 2021-11-04 at 17 14 39" src="https://user-images.githubusercontent.com/67747655/140387259-2fde647c-67b7-4e7b-879f-6a7ba1afdb87.png">
 
@@ -81,11 +81,11 @@ Then upload the code to the board. The board could get the London time.
 
 #### Step3 Publish Data to an MQTT Sever
 
-1.As did in step 2 and 3, connect to wifi and get the time. If you want to protect your wifi ssid and password. The secrects.h is useful.
+1.As did in step 1 and 2, connect to wifi and get the time. If you want to protect your wifi ssid and password. The secrets.h should be used to protect your privacy content.
 
-2.Initialise the builtin LED, and MQTT can turn on and off the LED.
+2.Initialise the builtin LED, and MQTT Explorer can turn on and off the LED.
 
-3.Use function sendmqtt to view information in MQTT
+3.Use function sendmqtt to view information saved in MQTT Explorer.
 ```
 void sendMQTT() {
 
@@ -125,7 +125,7 @@ void reconnect() {
   }
 }
 ```
-5.Use callback function holds the code to process messages that have been subscribed to by the sketch.\
+5.Use callback function holds the code to process messages that have been subscribed to by the sketch.
 ```
 void callback(char* topic, byte* payload, unsigned int length) {
   Serial.print("Message arrived [");
@@ -165,7 +165,7 @@ Finally, we used a CASA Plant Monitor shield to make the packaging a little tidi
 <img width="600" alt="3" src="https://user-images.githubusercontent.com/67747655/140666472-93d6307a-c562-4a16-823c-f92bf982ddac.png">
 
 ***
-#### Step5 Publish data to MQTT
+#### Step5 Publish data to MQTT Explorer
 
 Publish the sensor data to my topic name–– "ucfnqji" and get the temperature, humidity and soil moisture information.
 
@@ -183,19 +183,19 @@ void sendMQTT() {
   snprintf (msg, 50, "%.1f", Temperature);
   Serial.print("Publish message for t: ");
   Serial.println(msg);
-  client.publish("student/CASA0014/plant/ucxxxxx/temperature", msg);
+  client.publish("student/CASA0014/plant/ucfnqji/temperature", msg);
 
   Humidity = dht.readHumidity(); // Gets the values of the humidity
   snprintf (msg, 50, "%.0f", Humidity);
   Serial.print("Publish message for h: ");
   Serial.println(msg);
-  client.publish("student/CASA0014/plant/ucxxxxx/humidity", msg);
+  client.publish("student/CASA0014/plant/ucfnqji/humidity", msg);
 
   //Moisture = analogRead(soilPin);   // moisture read by readMoisture function
   snprintf (msg, 50, "%.0i", Moisture);
   Serial.print("Publish message for m: ");
   Serial.println(msg);
-  client.publish("student/CASA0014/plant/ucxxxxx/moisture", msg);
+  client.publish("student/CASA0014/plant/ucfnqji/moisture", msg);
 
 }
 
@@ -212,7 +212,7 @@ void reconnect() {
       Serial.println("connected");
 
       // ... and resubscribe
-      client.subscribe("student/CASA0014/plant/ucxxxxx/inTopic");
+      client.subscribe("student/CASA0014/plant/ucfnqji/inTopic");
     } else {
       Serial.print("failed, rc=");
       Serial.print(client.state());
