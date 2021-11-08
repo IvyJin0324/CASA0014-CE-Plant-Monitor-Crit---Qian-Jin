@@ -34,14 +34,14 @@ Eve is my flower, so I want to know more about her and take care. Especially, wa
 ![Image 08-11-2021 at 03 36](https://user-images.githubusercontent.com/67747655/140680486-a3d5b8e1-e66c-4fae-aa9e-eebded5c4da6.jpg)
 (Source:https://www.amazon.co.uk/Arduino-A000066-ARDUINO-UNO-REV3/dp/B008GRTSV6/ref=sr_1_3?crid=3TMXS6NQ4IPZ0&keywords=Arduino%2Buno&qid=1636342528&sprefix=arduino%2Buno%2Caps%2C75&sr=8-3&th=1)
 - Huzzah Board with ESP8266 Wifi
-![Image 08-11-2021 at 03 29](https://user-images.githubusercontent.com/67747655/140679992-59962a5e-21b8-47d1-b527-2c47eb4a30a5.jpg)
+- ![Image 08-11-2021 at 03 29](https://user-images.githubusercontent.com/67747655/140679992-59962a5e-21b8-47d1-b527-2c47eb4a30a5.jpg)
 (Source: https://www.amazon.co.uk/Adafruit-HUZZAH32-ESP32-Feather-Board/dp/B0743FNXK5/ref=pd_sbs_1/259-8957207-7995649?pd_rd_w=5IyS0&pf_rd_p=b3232d54-1e37-435b-b370-81046eef630a&pf_rd_r=6RHGYX6QD9NY1YMX42FP&pd_rd_r=c959d6aa-70ab-4913-802f-4771438597ec&pd_rd_wg=YPLxE&pd_rd_i=B0743FNXK5&psc=1)
 - DHT22 sensor
-![Image 08-11-2021 at 03 14](https://user-images.githubusercontent.com/67747655/140678836-b6d5cf4f-595d-4ac2-bd19-d9a2bda0480f.jpg)
+- ![Image 08-11-2021 at 03 14](https://user-images.githubusercontent.com/67747655/140678836-b6d5cf4f-595d-4ac2-bd19-d9a2bda0480f.jpg)
 (Source:https://www.amazon.co.uk/Wishiot-Temperature-Humidity-Raspberry-Project%EF%BC%88Pack/dp/B08V8SYV66/ref=sr_1_1_sspa?crid=1HCYT6I9FK8WW&keywords=DHT22&qid=1636342390&s=computers&sprefix=dht22%2Ccomputers%2C91&sr=1-1-spons&psc=1&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUExUzBPTTg3SDRWQlBRJmVuY3J5cHRlZElkPUEwNzg0NDc1M0xOQUcxMkE2OFJUViZlbmNyeXB0ZWRBZElkPUEwMjQ2MTI1WVkwMjJXTDNJWFdaJndpZGdldE5hbWU9c3BfYXRmJmFjdGlvbj1jbGlja1JlZGlyZWN0JmRvTm90TG9nQ2xpY2s9dHJ1ZQ==)
 - 2 nails
 - Raspberry Pi
-![Image 08-11-2021 at 03 43](https://user-images.githubusercontent.com/67747655/140681201-d45c756b-7501-4668-86bd-45e1509a4029.jpg)
+- ![Image 08-11-2021 at 03 43](https://user-images.githubusercontent.com/67747655/140681201-d45c756b-7501-4668-86bd-45e1509a4029.jpg)
 
 ### Software Needed
 - [Arduino IDE](https://www.arduino.cc/en/software)
