@@ -12,7 +12,7 @@ This is the project presentation Crit 2 and I will present my plant monitor desi
 > You become responsible, forever, for what you have tamed.
 Eve is my flower, so I want to know more about her and take care. Especially, water, what Eve need most.
 
-<img width="800" alt="Screenshot 2021-11-04 at 18 01 03" src="https://user-images.githubusercontent.com/67747655/140394420-84bf050e-7e8e-499d-99b8-a284f75d3cf2.png">
+<img width="600" alt="Screenshot 2021-11-04 at 18 01 03" src="https://user-images.githubusercontent.com/67747655/140394420-84bf050e-7e8e-499d-99b8-a284f75d3cf2.png">
 
 ***
 ## Content List
@@ -166,7 +166,7 @@ Then I upload and run the testMoisture script(provided by Duncan) and DHT(Arduin
 Finally, we used a CASA Plant Monitor shield which makes the packaging a little tidier.
 
 <img width="600" alt="testmoisture" src="https://user-images.githubusercontent.com/67747655/141294709-65a1b845-3222-41ca-beee-afce086d36fe.png">
-![test](https://user-images.githubusercontent.com/67747655/141295126-4434c61b-392d-489a-9cc1-96e4db07b11c.jpg)
+![test](https://user-images.githubusercontent.com/67747655/141296580-4c566889-25c1-4c5f-b20e-4df6c2b9aba2.png)
 
 ***
 #### Step5 Publish data to MQTT Explorer
@@ -227,7 +227,7 @@ void reconnect() {
   }
 }
 ```
-<img width="1022" alt="MQTT" src="https://user-images.githubusercontent.com/67747655/141295441-ec914837-4d45-4d97-a7d6-de05ab32e1a1.png">
+<img width="600" alt="MQTT" src="https://user-images.githubusercontent.com/67747655/141295441-ec914837-4d45-4d97-a7d6-de05ab32e1a1.png">
 
 
 ***
@@ -263,30 +263,27 @@ Based on the grafana, I got the beautiful chart shows the Eve's environmental in
 
 Now, I can know whether Eve is healthy and take care her better.
 
-<img width="1016" alt="visualisation" src="https://user-images.githubusercontent.com/67747655/141296203-e75af882-3a72-4a81-aa81-fc3b7121bf67.png">
+<img width="200" alt="visualisation" src="https://user-images.githubusercontent.com/67747655/141296203-e75af882-3a72-4a81-aa81-fc3b7121bf67.png">
 
 ***
 ## In the Future
 #### Shortage
-1. In this process, I can not understand the function and principle of some coding, and just copy the tutor's script. Even stand on the shoulder of giants, I still should get understanding to use it better.
 
-2. The final result is showed on the website. But I want to know Eve's condition whenever and wherever, so a mobile phone page is more useful because I use my phone all the day. 
+1. The final result is showed on the website. But I want to know Eve's condition whenever and wherever, so a mobile phone page is more useful because I use my phone all the day. 
 
-3. We use two nails to minitor the soil moisture. But it is not accurate and reliable. 
+2. We use two nails to minitor the soil moisture. But it is not accurate and reliable. 
 
 #### Improvement
 
-1. Read relevant books in the reading week.
+1. Develop an app to show Eve's environmental information.
 
-2. Develop an app to show Eve's environmental information.
-
-3. Use the specific sensor to detect the soil moisture. Just like this:
+2. Use the specific sensor to detect the soil moisture. Just like this:
 ![image](https://user-images.githubusercontent.com/67747655/140677633-29e53975-d32a-4d91-bd73-74c11da67a6a.png)
 (Soursed: https://www.amazon.co.uk/Aideepen-Hygrometer-capacitive-Capacitive-Corrosion/dp/B08GCRZVSR/ref=sr_1_3_sspa?crid=B0J9P53GABUJ&keywords=soil+moisture+sensor&qid=1636343597&sprefix=soil+%2Caps%2C71&sr=8-3-spons&psc=1&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUEzVUZOQ1ZFOUdBQ1hZJmVuY3J5cHRlZElkPUEwNDc1NDY5MjlDVDhHOE9IWUhXOCZlbmNyeXB0ZWRBZElkPUEwNTA4MzYwMllTT1dJVjROQldHWiZ3aWRnZXROYW1lPXNwX2F0ZiZhY3Rpb249Y2xpY2tSZWRpcmVjdCZkb05vdExvZ0NsaWNrPXRydWU=)
 
-4. Design a beautiful house for Eve and her friends.(Use 3dmax to build the model and 3D print technology to make it).
+3. Design a beautiful house for Eve and her friends.(Use 3dmax to build the model and 3D print technology to make it).
 
-5. Achieve the watering automactically.
+4. Achieve the watering automactically.
 
 ***
 ## Reference
