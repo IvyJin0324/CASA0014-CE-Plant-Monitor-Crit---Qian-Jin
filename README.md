@@ -30,9 +30,6 @@ Eve is my flower, so I want to know more about her and take care. Especially, wa
 - Visualise collected data
 
 ### Hardware Needed
-- Arduino UNO
-![Image 08-11-2021 at 03 36](https://user-images.githubusercontent.com/67747655/140680486-a3d5b8e1-e66c-4fae-aa9e-eebded5c4da6.jpg)
-(Source:https://www.amazon.co.uk/Arduino-A000066-ARDUINO-UNO-REV3/dp/B008GRTSV6/ref=sr_1_3?crid=3TMXS6NQ4IPZ0&keywords=Arduino%2Buno&qid=1636342528&sprefix=arduino%2Buno%2Caps%2C75&sr=8-3&th=1)
 - Huzzah Board with ESP8266 Wifi
 - ![Image 08-11-2021 at 03 29](https://user-images.githubusercontent.com/67747655/140679992-59962a5e-21b8-47d1-b527-2c47eb4a30a5.jpg)
 (Source: https://www.amazon.co.uk/Adafruit-HUZZAH32-ESP32-Feather-Board/dp/B0743FNXK5/ref=pd_sbs_1/259-8957207-7995649?pd_rd_w=5IyS0&pf_rd_p=b3232d54-1e37-435b-b370-81046eef630a&pf_rd_r=6RHGYX6QD9NY1YMX42FP&pd_rd_r=c959d6aa-70ab-4913-802f-4771438597ec&pd_rd_wg=YPLxE&pd_rd_i=B0743FNXK5&psc=1)
@@ -65,6 +62,7 @@ const char* password = "password here";
 const char* host = "iot.io";
 ```
 Then upload this script to the board, and it get the wifi signal.
+<img width="600" alt="wifi" src="https://user-images.githubusercontent.com/67747655/141293097-7e447bbb-bd7e-4310-b70c-42f06b48ced1.png">
 
 ***
 
@@ -79,7 +77,7 @@ Timezone GB;
 ```
 Then upload the script to the board. The board could get the London time.
 
-<img width="800" alt="Screenshot 2021-11-04 at 17 14 39" src="https://user-images.githubusercontent.com/67747655/140387259-2fde647c-67b7-4e7b-879f-6a7ba1afdb87.png">
+<img width="843" alt="eztime" src="https://user-images.githubusercontent.com/67747655/141293417-f058fd63-8198-41bd-a410-72b3369a1194.png">
 
 ***
 
@@ -152,11 +150,14 @@ void callback(char* topic, byte* payload, unsigned int length) {
 ```
 6.Use the MQTT to turn on or out LED. Publish "1" to student/CASA0014/plant/ucfnqji/inTopic
 
+
+![light](https://user-images.githubusercontent.com/67747655/141294412-ec5f3332-6df2-4b6a-af05-7825a5d3c01c.jpg)
+
 ***
 
 #### Step4 Monitor soil and Environment
 
-<img width="800" alt="7FFB9554-1675-45F7-B587-B5180DE76F8A" src="https://user-images.githubusercontent.com/67747655/140656272-8074928f-f19c-4804-80ff-cda9e8920c45.png">
+<img width="600" alt="7FFB9554-1675-45F7-B587-B5180DE76F8A" src="https://user-images.githubusercontent.com/67747655/140656272-8074928f-f19c-4804-80ff-cda9e8920c45.png">
 
 Following the fritzing diagram, I connected the DHT22 sensor(temperature / humidity sensor) and two nails(test the soil moisture).
 
@@ -164,9 +165,8 @@ Then I upload and run the testMoisture script(provided by Duncan) and DHT(Arduin
 
 Finally, we used a CASA Plant Monitor shield which makes the packaging a little tidier.
 
-
-![141636030760_ pic](https://user-images.githubusercontent.com/67747655/140321345-109f7500-7ad2-4b1a-a84d-e9365d33f8d3.jpg)
-<img width="600" alt="3" src="https://user-images.githubusercontent.com/67747655/140666472-93d6307a-c562-4a16-823c-f92bf982ddac.png">
+<img width="600" alt="testmoisture" src="https://user-images.githubusercontent.com/67747655/141294709-65a1b845-3222-41ca-beee-afce086d36fe.png">
+![test](https://user-images.githubusercontent.com/67747655/141295126-4434c61b-392d-489a-9cc1-96e4db07b11c.jpg)
 
 ***
 #### Step5 Publish data to MQTT Explorer
@@ -227,6 +227,9 @@ void reconnect() {
   }
 }
 ```
+<img width="1022" alt="MQTT" src="https://user-images.githubusercontent.com/67747655/141295441-ec914837-4d45-4d97-a7d6-de05ab32e1a1.png">
+
+
 ***
 #### Step6: Store data by Raspberry Pi
 
@@ -259,6 +262,8 @@ reboot
 Based on the grafana, I got the beautiful chart shows the Eve's environmental information.
 
 Now, I can know whether Eve is healthy and take care her better.
+
+<img width="1016" alt="visualisation" src="https://user-images.githubusercontent.com/67747655/141296203-e75af882-3a72-4a81-aa81-fc3b7121bf67.png">
 
 ***
 ## In the Future
