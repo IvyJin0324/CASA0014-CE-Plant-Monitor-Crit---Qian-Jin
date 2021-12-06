@@ -6,8 +6,8 @@ CASA0014-CE
 
 #include <ESP8266WiFi.h>
 
-const char* ssid     = "CE-Hub";
-const char* password = "()454,w1f1";
+const char* ssid     = "YOUR SSID";
+const char* password = "YOUR PASSWORD";
 const char* host = "iot.io";
 
 void setup() {
